@@ -1,0 +1,27 @@
+class Solution:
+    # @param A : string
+    # @return an integer
+    def solve(self, A):
+        listX = []
+        listO = []
+        
+        for item in range (len(A)):
+           if A[item] == "x":
+               listX.append(item)
+               
+           if A[item] == "o":
+               listO.append(item)
+               
+        print("listX: ",listX)
+        print("listO: ",listO)
+        solution = len(A)
+        
+        for item1 in listO:
+            for item2 in listX:
+                if abs(item1-item2) < solution:
+                    solution = abs(item1-item2)
+        
+        if not solution == len(A):
+            return solution
+        else: 
+            return -1
